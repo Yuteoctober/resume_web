@@ -15,9 +15,11 @@ import Postman from '../assets/Postman.png'
 import Redux from '../assets/Redux.png'
 import Tailwind from '../assets/Tailwind.png'
 import TypeScript from '../assets/TypeScript.png'
+import { IoSunny } from "react-icons/io5";
+import { IoMoon } from "react-icons/io5";
 
 
-export default function resume() {
+export default function resume({darkMode, setDarkMode}) {
 
 const personal = {
     firstName: 'Yute',
@@ -153,13 +155,23 @@ function handleOpenLink(index:number) {
 
 
   return (
-    <div className="md:min-w-[800px] lg:w-[900px] md:max-w-6x1 w-auto bg-white absolute top-0 left-1/2 -translate-x-1/2">
+    <div className="md:min-w-[800px] lg:w-[900px] md:max-w-6x1 w-[100svw] overflow-x-hidden bg-white absolute top-0 left-1/2 -translate-x-1/2">
+      <div className="target absolute right-4 top-3" onClick={() => setDarkMode(!darkMode)}>
+        <p className="text-[30px] duration-500 transition-opacity opacity-100">
+          {darkMode ? (
+            <IoSunny className="transition-opacity opacity-100" />
+          ) : (
+            <IoMoon className="transition-opacity opacity-100" />
+          )}
+        </p>
+      </div>
+
       {/* Header */}
-      <header className="bg-gray-700 p-8 flex flex-col md:flex-row items-center md:items-start gap-6 text-white">
+      <header className={`${darkMode ? 'bg-gray-800' : 'bg-gray-700'} duration-500 p-8 flex flex-col md:flex-row items-center md:items-start gap-6 text-white`}>
         <div className="relative">
-            <h1 className="text-4xl font-light mb-2 flex gap-6">
-                <span className="relative transform origin-center hover:scale-108 transition-transform duration-500 cursor-default">{personal.firstName}</span>
-                <span className="relative transform origin-center hover:scale-108 transition-transform duration-500 cursor-default">{personal.lastName}</span>
+            <h1 className={`${darkMode ? '' : 'text-white'} duration-500 text-4xl font-light mb-2 flex gap-6`}>
+                <span className="target relative transform origin-center hover:scale-108 transition-transform duration-500 cursor-default">{personal.firstName}</span>
+                <span className="target relative transform origin-center hover:scale-108 transition-transform duration-500 cursor-default">{personal.lastName}</span>
             </h1>
           <p className="text-[18px] right-22 relative transform origin-center hover:text-grey-500 cursor-default">{personal.career}</p>
         </div>
@@ -167,23 +179,23 @@ function handleOpenLink(index:number) {
 
       <div className="flex flex-col md:flex-row">
         {/* Left Column */}
-        <div className="w-full md:w-[300px] bg-[#f8f3f1] p-6">
+        <div className={`${darkMode ? 'bg-[#151414]' : 'bg-[#f8f3f1]'} duration-500 w-full md:w-[300px] p-6`}>
           <section className="mb-8">
-            <h2 className="text-gray-700 font-medium text-xl mb-4">CONTACT</h2>
+          <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>CONTACT</h2>
             <div className="space-y-3 relative md:left-1/3 left-1/2 -translate-x-1/3">
-              <div className="flex w-[250px] items-center gap-3 text-gray-600 hover:text-blue-600 transform origin-center hover:scale-105 transition-transform duration-500 cursor-pointer">
+            <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 transform origin-center hover:scale-105 transition-transform duration-500 cursor-pointer`}>
                 <Phone className="w-5 h-5" />
                 <span>{personal.phone}</span>
               </div>
-              <div className="flex w-[250px] items-center gap-3 text-gray-600 hover:text-blue-600 transform origin-center hover:scale-105 transition-transform duration-500 cursor-pointer">
+              <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 transform origin-center hover:scale-105 transition-transform duration-500 cursor-pointer`}>
                 <Mail className="w-5 h-5" />
                 <span>{personal.email}</span>
               </div>
-              <div className="flex w-[250px] items-center gap-3 text-gray-600 hover:text-blue-600 transform origin-center hover:scale-105 transition-transform duration-500 cursor-default">
+              <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 transform origin-center hover:scale-105 transition-transform duration-500 cursor-pointer`}>
                 <MapPin className="w-5 h-5" />
                 <span>{personal.location}</span>
               </div>
-              <div className="flex w-[250px] items-center gap-3 text-gray-600 hover:text-blue-600 transform origin-center hover:scale-105 transition-transform duration-500 cursor-pointer">
+              <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 transform origin-center hover:scale-105 transition-transform duration-500 cursor-pointer`}>
                 <Linkedin className="w-5 h-5" />
                 <span className="whitespace-nowrap">{personal.linked}</span>
               </div>
@@ -191,42 +203,47 @@ function handleOpenLink(index:number) {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-gray-700 font-medium text-xl mb-4">EDUCATION</h2>
+            <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>EDUCATION</h2>
             <div className="space-y-4">
               <div>
-                <p className="text-gray-600">{personal.major}</p>
-                <p className="text-gray-600">{personal.school}</p>
-                <p className="text-gray-600">{personal.year}</p>
+              <p className={`${darkMode ? 'text-white' : 'text-gray-600'} duration-500`}>{personal.major}</p>
+              <p className={`${darkMode ? 'text-white' : 'text-gray-600'} duration-500`}>{personal.school}</p>
+              <p className={`${darkMode ? 'text-white' : 'text-gray-600'} duration-500`}>{personal.year}</p>
               </div>
             </div>
           </section>
 
           <section>
-            <h2 className="text-gray-700 font-medium text-xl mb-4">Tech Stack</h2>
+            <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>Tech Stack</h2>
             <div className="p-2 text-gray-600 grid grid-cols-3 gap-3">
               {techStack.map((icon, index) => (
                 <div
                   key={index}
-                  className="bg-gray-200 p-4 flex flex-col items-center rounded-sm transition-transform transform hover:scale-105 shadow-md hover:shadow-lg duration-200"
+                  className={`${
+                  darkMode ? 'bg-gray-800 shadow-lg hover:shadow-xl' : 'bg-gray-200 shadow-md hover:shadow-lg'
+                } p-4 flex flex-col items-center rounded-sm transition-transform transform hover:scale-105 duration-200`}
                 >
-                  <img src={icon.image} alt={icon.name} className="w-[34px]" />
-                  <p className="text-[13px] cursor-default">{icon.name}</p>
-                </div>
+                <img src={icon.image} alt={icon.name} className="w-[34px]" />
+                <p className={`${darkMode ? 'text-white' : 'text-gray-900'} text-[13px] cursor-default relative top-1`}>
+                  {icon.name}
+                </p>
+              </div>
+              
               ))}
             </div>
           </section>
         </div>
 
         {/* Right Column */}
-        <div className="w-full md:w-2/3 p-8">
+        <div className={`${darkMode ? 'bg-[#1a1919fa]' : ''} w-full md:w-2/3 p-8`}>
           <section className="mb-8">
-            <div className="bg-[#f8f3f1] px-4 py-2 mb-4">
-              <h2 className="text-gray-700 font-medium text-xl">PROFESSIONAL EXPERIENCE</h2>
+          <div className={`${darkMode ? 'bg-gray-800' : 'bg-[#f8f3f1]'} duration-500 px-4 py-2 mb-4`}>
+          <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl`}>PROFESSIONAL EXPERIENCE</h2>
             </div>
-            <ul className="list-disc ml-1 text-gray-600 text-left text-[14px]">
+            <ul className={`${darkMode ? 'text-white' : 'text-gray-600'} duration-500 list-disc ml-1 text-left text-[14px]`}>
               {sectionOne.position}
               {sectionOne.detail.map((text, index) => (
-                <li key={index} className="ml-4">
+                <li key={index} className="target ml-4">
                   {text}
                 </li>
               ))}
@@ -234,19 +251,20 @@ function handleOpenLink(index:number) {
           </section>
               
           <section>
-            <div className="bg-[#f8f3f1] px-4 py-2 mb-4">
-              <h2 className="text-gray-700 font-medium text-xl">PROJECTS</h2>
+            <div className={`${darkMode ? 'bg-gray-800' : 'bg-[#f8f3f1]'} duration-500 px-4 py-2 mb-4`}>
+              <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl`}>PROJECTS</h2>
             </div>
             <div className="space-y-6">
             {sectionTwo.map((text, index) => (
               <ul key={index} className="list-disc ml-1 text-gray-600 text-left text-[14px] cursor-pointer ">
-                <li className="cursor-pointer hover:text-blue-600 list-none w-fit transform origin-center hover:scale-105 transition-transform duration-500 "
+                <li className={`${darkMode ? 'text-white' : 'text-gray-600'} duration-500 target cursor-pointer hover:text-blue-600 list-none w-fit transform origin-center hover:scale-105 transition-transform`}
                   onClick={() => handleOpenLink(index)}
                 >
                   {text.position}
                 </li>
                 {text.detail.map((textLi, liIndex) => (
-                  <li key={liIndex} className="ml-4 cursor-text">
+                  <li key={liIndex} className={`${darkMode ? 'text-white' : 'text-gray-600'} duration-500 target ml-4 cursor-text`}>
+
                     {textLi}
                   </li>
                 ))}
