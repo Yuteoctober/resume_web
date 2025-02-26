@@ -48,10 +48,106 @@ const techStack = [
   { name: "Mongoose", image: Mongoose },
   { name: "GitHub", image: GitHub },
   { name: "Postman", image: Postman },
-  
-  
-  
 ];
+
+const sectionOne = {
+  position: (
+    <>
+      <b>SOFTWARE ENGINEER</b> | <b>FREELANCE</b>
+    </>
+  ),
+  detail: [
+    <>
+      Designed and developed a customizable <b>clothes store platform</b>, 
+      enabling clients to personalize images, texts, and colors via an 
+      <b> admin login system</b>, using <b>MongoDB</b> and <b>Node.js </b> 
+      for the <b>back-end</b>.
+    </>,
+    <>
+      Achieved a <b>25% increase</b> in <b>page visits</b> through <b>SEO optimization</b> strategies, resulting in a <b>21% boost in order volume</b>.
+    </>
+  ]
+};
+
+const sectionTwo = [
+  {
+    position: (
+      <>
+        <b>WINDOWS95 | UX/UI | FULLSTACK </b>
+      </>
+    ),
+    detail: [
+      <>
+        Developed <b>UX and UI</b> clone of <b>Windows 95</b>, 
+        responsive across devices from <b>Mobile</b> to <b>Desktop</b> along with 
+        core functionalities using <b>React</b>.
+      </>,
+      <>
+        Implemented key <b>UX functionalities</b> like <b>Drag and Drop</b>, <b>hiding</b>, <b>expanding</b>, and focusing on icons and
+        folders to mimic the classic <b>Windows 95 experience</b>.
+      </>,
+      <>
+        Integrated a fully functional <b>Minesweeper</b> game and a <b>real-time chat application</b>, using <b>MongoDB</b>,
+        <b>Web-socket</b> and <b>Node.js</b> for <b>back-end</b> support, to enhance interactivity.
+      </>
+    ]
+  },
+  {
+    position: (
+      <>
+        <b>STICKYNOTE | FULLSTACK</b>
+      </>
+    ),
+    detail: [
+      <>
+        Architected database schema and drove the implementation of <b>back-end</b> infrastructure by 
+        building out <b>RESTful APIs</b> using <b>Node.js</b> and <b>Express</b>.
+      </>,
+      <>
+        Implemented full-scale <b>CRUD </b>operations to manage data.
+      </>,
+      <>
+        Integrated <b>JWT</b> and <b>bcrypt</b> to authenticate users' login and data.
+      </>,
+      <>
+        Implemented <b>drag-and-drop</b> functionality on the front-end for users to 
+        manage their notes using <b>React</b>.
+      </>
+    ]
+  },
+  {
+    position: (
+      <>
+        <b>OPENNFT | E-COMMERCE</b>
+      </>
+    ),
+    detail: [
+      <>
+        Pioneered the creation of an <b>E-Commerce platform</b>, specializing in the sale of <b>NFT digital art</b>, 
+        responsive across devices from <b>Mobile</b> to <b>Desktop</b>.
+      </>,
+      <>
+        Integrated <b>Axios</b> to fetch data from <b>API</b> to display on the <b>front-end</b>.
+      </>,
+      <>
+        Engineered and optimized <b>sorting algorithms</b> to enhance search and filter functionalities.
+      </>
+    ]
+  }
+];
+
+
+
+
+function handleOpenLink(index:number) {
+  switch(index) {
+    case 0: window.open('https://yuteoctober.github.io/wins95Portfolio/', '_blank'); break;
+    case 1: window.open('https://opennft.netlify.app/', '_blank'); break;
+    case 2: window.open('https://fullstack-stickynotes.netlify.app/', '_blank'); break;
+    default: break; 
+  }
+}
+
 
 
 
@@ -110,12 +206,10 @@ const techStack = [
             <div className="p-2 text-gray-600 grid grid-cols-3 gap-3">
               {techStack.map((icon, index) => (
                 <div
-                key={index}
-                className="bg-gray-200 p-4 flex flex-col items-center rounded-sm 
-                           transition-transform transform hover:scale-105 shadow-md 
-                           hover:shadow-lg duration-200"
-              >
-                  <img src={icon.image} alt={icon.name} className=" w-[34px]" />
+                  key={index}
+                  className="bg-gray-200 p-4 flex flex-col items-center rounded-sm transition-transform transform hover:scale-105 shadow-md hover:shadow-lg duration-200"
+                >
+                  <img src={icon.image} alt={icon.name} className="w-[34px]" />
                   <p className="text-[13px] cursor-default">{icon.name}</p>
                 </div>
               ))}
@@ -127,57 +221,37 @@ const techStack = [
         <div className="w-full md:w-2/3 p-8">
           <section className="mb-8">
             <div className="bg-[#f8f3f1] px-4 py-2 mb-4">
-              <h2 className="text-gray-700 font-medium text-xl">PROFESSIONAL PROFILE</h2>
+              <h2 className="text-gray-700 font-medium text-xl">PROFESSIONAL EXPERIENCE</h2>
             </div>
-            <p className="text-gray-600">
-              Use this area to quickly sell yourself and prove that you are awesome skills and achievements can truly
-              help the company you're applying to. Keep Your Profile Concise. The goal is to make it short and powerful.
-              A profile explains what you have to offer the employer and can help sell your candidacy. Therefore, even
-              if employers only read your profile, they will still have a clear idea of your unique qualifications.
-            </p>
+            <ul className="list-disc ml-1 text-gray-600 text-left text-[14px]">
+              {sectionOne.position}
+              {sectionOne.detail.map((text, index) => (
+                <li key={index} className="ml-4">
+                  {text}
+                </li>
+              ))}
+            </ul>
           </section>
-
+              
           <section>
             <div className="bg-[#f8f3f1] px-4 py-2 mb-4">
-              <h2 className="text-gray-700 font-medium text-xl">EXPERIENCE</h2>
+              <h2 className="text-gray-700 font-medium text-xl">PROJECTS</h2>
             </div>
             <div className="space-y-6">
-              <div>
-                <h3 className="font-medium text-lg">ENTER JOB POSITION HERE</h3>
-                <p className="text-gray-500">Company / Location / Date Range</p>
-                <p className="mt-2 text-gray-600">
-                  Describe your responsibilities in concise statements led by strong verbs. Focus on those skills and
-                  strengths that you possess and that you have identified as being important to your field. Show
-                  potential employers exactly how you will fit their position and their company.
-                </p>
-                <ul className="list-disc ml-5 mt-2 space-y-2 text-gray-600">
-                  <li>
-                    Highlight your most relevant qualifications for the job by listing them first in the job
-                    description.
+            {sectionTwo.map((text, index) => (
+              <ul key={index} className="list-disc ml-1 text-gray-600 text-left text-[14px] cursor-pointer ">
+                <li className="cursor-pointer hover:text-blue-600 list-none w-fit transform origin-center hover:scale-105 transition-transform duration-500 "
+                  onClick={() => handleOpenLink(index)}
+                >
+                  {text.position}
+                </li>
+                {text.detail.map((textLi, liIndex) => (
+                  <li key={liIndex} className="ml-4 cursor-text">
+                    {textLi}
                   </li>
-                  <li>
-                    While it is important to keep descriptions short, adding details and context can help show employers
-                    why you'd be a good match for the position.
-                  </li>
-                  <li>
-                    Employers want to know what you accomplished. Make it easy for them to see what you've done by using
-                    numbers and percentages.
-                  </li>
-                  <li>
-                    For example: Negotiated pricing points for customers on a daily basis with changing market
-                    conditions resulting in customer annual transportation savings of over $500,000 per year.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-medium text-lg">ENTER JOB POSITION HERE</h3>
-                <p className="text-gray-500">Company / Location / Date Range</p>
-                <p className="mt-2 text-gray-600">
-                  Describe your responsibilities in concise statements led by strong verbs. Focus on those skills and
-                  strengths that you possess and that you have identified as being important to your field.
-                </p>
-              </div>
+                ))}
+              </ul>
+            ))}
             </div>
           </section>
         </div>
