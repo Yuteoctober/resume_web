@@ -212,7 +212,7 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
             <span className="target md:text-[50px] text-[40px] relative duration-500 cursor-default">{personal.firstName}</span>
             <span className="target md:text-[50px] text-[40px] relative duration-500 cursor-default">{personal.lastName}</span>
           </h1>
-          <p className="text-[18px] pl-1 transform cursor-default">{personal.career}</p>
+          <p className="text-[18px] pl-2 transform cursor-default">{personal.career}</p>
         </div>
       </header>
 
@@ -227,7 +227,7 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
                     onClick={() => handleContact(item.detail)}
                   >
                     <item.icon className="w-5 h-5" />
-                    <span>{item.detail}</span>
+                    <span className=" text-[15px]">{item.detail}</span>
                   </div>
                 ))}
             </div>
