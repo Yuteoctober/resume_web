@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Globe } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 
 import React from '../assets/React.png';
@@ -27,6 +27,7 @@ type PersonalInfo = {
   email: string;
   location: string;
   linked: string;
+  portfolio: string;
   major: string;
   school: string;
   year: string;
@@ -38,9 +39,10 @@ const personal: PersonalInfo = {
   career: "Software Engineer",
   phone: "929-235-5371",
   email: "yudthsoponvit@gmail.com",
-  location: "NEW YORK",
+  location: "NEW YORK, NY",
   linked: "Linkedin.com/in/yuteoctober",
-  major: "Bachelor of International Business",
+  portfolio: "Wins95Portfolio",
+  major: "Bachelor of Information Systems",
   school: "Ramkhamhaeng University",
   year: "2011-2015",
 };
@@ -175,11 +177,20 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
     }
   }
 
+  function handleContact(name: string): void {
+    if (name.includes('Wins95')) {
+      window.open('https://yuteoctober.github.io/wins95Portfolio/');
+      return;
+    }
+    return;
+  }
+
   const contact = [
     {icon: Phone, detail: personal.phone},
     {icon: Mail, detail: personal.email},
     {icon: MapPin, detail: personal.location},
     {icon: Linkedin, detail: personal.linked},
+    {icon: Globe, detail: personal.portfolio},
   ]
 
   return (
@@ -211,9 +222,10 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
           <section className="mb-8">
             <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>CONTACT</h2>
             <div className="space-y-3 relative md:left-1/3 left-1/2 -translate-x-1/3">
-              
                 {contact.map((item) => (
-                  <div className={`${darkMode ? 'text-white hover:text-blue-400 active:text-blue-400' : 'text-gray-600 hover:text-blue-600 active:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}>
+                  <div className={`${darkMode ? 'text-white hover:text-blue-400 active:text-blue-400' : 'text-gray-600 hover:text-blue-600 active:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}
+                    onClick={() => handleContact(item.detail)}
+                  >
                     <item.icon className="w-5 h-5" />
                     <span>{item.detail}</span>
                   </div>
