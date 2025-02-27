@@ -11,6 +11,11 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  width: 100svw;
+  overflow-x: hidden;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
