@@ -5,7 +5,7 @@ import AnimatedCursor from 'react-animated-cursor';
 
 function App() {
 
-  const [darkMode, setDarkMode] = useState<boolean>(false)
+  const [darkMode, setDarkMode] = useState<boolean>(true)
   const [isTouchDevice, setIsTouchDevice] = useState<boolean>(false)
 
   useEffect(() => {
