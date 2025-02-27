@@ -216,7 +216,7 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
         </div>
       </header>
 
-      <div className={`${darkMode ? 'bg-black' : 'bg-white'} flex flex-col md:flex-row`}>
+      <div className={`${darkMode ? 'bg-black' : 'bg-white'} flex flex-col md:flex-row `}>
         {/* Left Column */}
         <div className={`${darkMode ? 'bg-[#151414]' : 'bg-[#f8f3f1]'} duration-500 w-full md:w-[300px] p-6`}>
           <section className="mb-8">
@@ -254,8 +254,8 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
                     darkMode ? 'bg-gray-800 shadow-lg hover:shadow-xl' : 'bg-gray-200 shadow-md hover:shadow-lg'
                   } p-4 flex flex-col items-center rounded-sm transition-transform transform hover:scale-105 duration-200`}
                 >
-                  <img src={icon.image} alt={icon.name} className="w-[34px]" />
-                  <p className={`${darkMode ? 'text-white' : 'text-gray-900'} text-[13px] cursor-default relative top-1`}>
+                  <img src={icon.image} alt={icon.name} className="w-[30px]" />
+                  <p className={`${darkMode ? 'text-white' : 'text-gray-900'} text-[12px] cursor-default relative top-2`}>
                     {icon.name}
                   </p>
                 </div>
