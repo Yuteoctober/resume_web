@@ -1,5 +1,5 @@
 import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
-import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 import React from '../assets/React.png';
 import css from '../assets/CSS3.png';
@@ -59,6 +59,7 @@ type ResumeProps = {
   darkMode: boolean;
   setDarkMode: Dispatch<SetStateAction<boolean>>;
 };
+
 
 export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
 
@@ -124,6 +125,25 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
     {
       position: (
         <>
+          <b>OPENNFT | E-COMMERCE </b>
+        </>
+      ),
+      detail: [
+        <>
+          Pioneered the creation of an <b>E-Commerce platform</b>, specializing in the sale of <b>NFT digital art</b>,
+          responsive across devices from <b>Mobile</b> to <b>Desktop</b>.
+        </>,
+        <>
+          Integrated <b>Axios</b> to fetch data from <b>API</b> to display on the <b>front-end</b>.
+        </>,
+        <>
+          Engineered and optimized <b>sorting algorithms</b> to enhance search and filter functionalities.
+        </>
+      ]
+    },
+    {
+      position: (
+        <>
           <b>STICKYNOTE | FULLSTACK</b>
         </>
       ),
@@ -144,27 +164,8 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
         </>
       ]
     },
-    {
-      position: (
-        <>
-          <b>OPENNFT | E-COMMERCE </b>
-        </>
-      ),
-      detail: [
-        <>
-          Pioneered the creation of an <b>E-Commerce platform</b>, specializing in the sale of <b>NFT digital art</b>,
-          responsive across devices from <b>Mobile</b> to <b>Desktop</b>.
-        </>,
-        <>
-          Integrated <b>Axios</b> to fetch data from <b>API</b> to display on the <b>front-end</b>.
-        </>,
-        <>
-          Engineered and optimized <b>sorting algorithms</b> to enhance search and filter functionalities.
-        </>
-      ]
-    }
   ];
-
+  
   function handleOpenLink(index: number): void {
     switch (index) {
       case 0: window.open('https://yuteoctober.github.io/wins95Portfolio/', '_blank'); break;
@@ -174,8 +175,15 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
     }
   }
 
+  const contact = [
+    {icon: Phone, detail: personal.phone},
+    {icon: Mail, detail: personal.email},
+    {icon: MapPin, detail: personal.location},
+    {icon: Linkedin, detail: personal.linked},
+  ]
+
   return (
-    <div className="md:min-w-[800px] lg:w-[900px] md:max-w-6x1 w-[100svw] overflow-x-hidden bg-white absolute top-0 left-1/2 -translate-x-1/2">
+    <div className={`${darkMode? 'bg-black' : ''} md:min-w-[800px] lg:w-[900px] md:max-w-6x1 w-[100svw] overflow-x-hidden absolute top-0 left-1/2 -translate-x-1/2`}>
         <div className="target absolute right-4 top-3" onClick={() => setDarkMode(!darkMode)}>
         <p className="text-[30px] duration-500 transition-opacity opacity-100">
           {darkMode ? (
@@ -197,28 +205,19 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
         </div>
       </header>
 
-      <div className="flex flex-col md:flex-row">
+      <div className={`${darkMode ? 'bg-black' : 'bg-white'} flex flex-col md:flex-row`}>
         {/* Left Column */}
         <div className={`${darkMode ? 'bg-[#151414]' : 'bg-[#f8f3f1]'} duration-500 w-full md:w-[300px] p-6`}>
           <section className="mb-8">
             <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>CONTACT</h2>
             <div className="space-y-3 relative md:left-1/3 left-1/2 -translate-x-1/3">
-              <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}>
-                <Phone className="w-5 h-5" />
-                <span>{personal.phone}</span>
-              </div>
-              <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}>
-                <Mail className="w-5 h-5" />
-                <span>{personal.email}</span>
-              </div>
-              <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}>
-                <MapPin className="w-5 h-5" />
-                <span>{personal.location}</span>
-              </div>
-              <div className={`${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}>
-                <Linkedin className="w-5 h-5" />
-                <span className="whitespace-nowrap">{personal.linked}</span>
-              </div>
+              
+                {contact.map((item, index) => (
+                  <div className={`${darkMode ? 'text-white hover:text-blue-400 active:text-blue-400' : 'text-gray-600 hover:text-blue-600 active:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}>
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.detail}</span>
+                  </div>
+                ))}
             </div>
           </section>
 
