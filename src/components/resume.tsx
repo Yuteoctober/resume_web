@@ -212,7 +212,7 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
             <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>CONTACT</h2>
             <div className="space-y-3 relative md:left-1/3 left-1/2 -translate-x-1/3">
               
-                {contact.map((item, index) => (
+                {contact.map((item) => (
                   <div className={`${darkMode ? 'text-white hover:text-blue-400 active:text-blue-400' : 'text-gray-600 hover:text-blue-600 active:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}>
                     <item.icon className="w-5 h-5" />
                     <span>{item.detail}</span>
