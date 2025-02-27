@@ -13,7 +13,7 @@ function App() {
       innerSize={6}
       outerSize={30}
       innerScale={1}
-      outerScale={4.5}
+      outerScale={4}
       outerAlpha={0.2}
       outerStyle={{
         mixBlendMode: 'exclusion',
@@ -21,7 +21,7 @@ function App() {
         border: '2px solid white'
       }}
       innerStyle={{
-        backgroundColor: '#f3f5f3',
+        backgroundColor: darkMode ? '#353839' :'#f3f5f3',
       }}
       clickables={['.target']}
     />
