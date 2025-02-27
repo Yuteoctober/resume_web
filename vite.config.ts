@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: "/Resume_web/"
+  base: "/resume_web/"
 })
