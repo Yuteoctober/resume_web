@@ -195,12 +195,12 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
 
   return (
     <div className={`${darkMode? 'bg-black' : ''} md:min-w-[800px] lg:w-[900px] md:max-w-6x1 w-[100svw] overflow-x-hidden absolute top-0 left-1/2 -translate-x-1/2`}>
-        <div className="target absolute right-4 top-3" onClick={() => setDarkMode(!darkMode)}>
+        <div className="target absolute right-5 top-4" onClick={() => setDarkMode(!darkMode)}>
         <p className="text-[30px] duration-500 transition-opacity opacity-100">
           {darkMode ? (
-            <IoSunny className="transition-opacity opacity-100" />
+            <IoSunny className="sun"/>
           ) : (
-            <IoMoon className="transition-opacity opacity-100" />
+            <IoMoon className="moon"/>
           )}
         </p>
       </div>
