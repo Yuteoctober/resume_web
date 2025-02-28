@@ -223,7 +223,7 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
             <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>CONTACT</h2>
             <div className="space-y-3 relative md:left-2 flex flex-col items-center">
                 {contact.map((item) => (
-                  <div className={`${darkMode ? 'text-white hover:text-blue-400 active:text-blue-400' : 'text-gray-600 hover:text-blue-600 active:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}
+                  <div className={`${darkMode ? 'text-white hover:text-blue-400 active:text-blue-400' : 'text-gray-600 hover:text-blue-600 active:text-blue-600'} flex w-[250px] items-center gap-3 duration-500`}
                     onClick={() => handleContact(item.detail)}
                   >
                     <item.icon className="w-5 h-5" />
@@ -286,15 +286,15 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
             </div>
             <div className="space-y-6">
               {sectionTwo.map((text, index) => (
-                <ul key={index} className="list-disc ml-1 text-gray-600 text-left text-[14px] cursor-pointer ">
-                  <li className={`${darkMode ? 'text-white' : 'text-gray-600'} flex duration-500 target cursor-pointer hover:text-blue-600 list-none `}
+                <ul key={index} className="list-disc ml-1 text-gray-600 text-left text-[14px] ">
+                  <li className={`${darkMode ? 'text-white' : 'text-gray-600'} flex duration-500  hover:text-blue-600 list-none `}
                     onClick={() => handleOpenLink(index)}
                   >
                     {text.position}
                     <IoLink className="text-[18px] relative ml-1 top-[2px]"/>
                   </li>
                   {text.detail.map((textLi, liIndex) => (
-                    <li key={liIndex} className={`${darkMode ? 'text-white' : 'text-gray-600'} duration-500 target ml-4 cursor-text`}>
+                    <li key={liIndex} className={`${darkMode ? 'text-white' : 'text-gray-600'} target duration-500 ml-4 cursor-text`}>
                       {textLi}
                     </li>
                   ))}
