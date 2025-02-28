@@ -221,7 +221,7 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
         <div className={`${darkMode ? 'bg-[#151414]' : 'bg-[#f8f3f1]'} duration-500 w-full md:w-[300px] p-6`}>
           <section className="mb-8">
             <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl mb-4`}>CONTACT</h2>
-            <div className="space-y-3 relative md:left-1/3 left-1/2 -translate-x-1/3">
+            <div className="space-y-3 relative md:left-2 flex flex-col items-center">
                 {contact.map((item) => (
                   <div className={`${darkMode ? 'text-white hover:text-blue-400 active:text-blue-400' : 'text-gray-600 hover:text-blue-600 active:text-blue-600'} target flex w-[250px] items-center gap-3 duration-500 cursor-pointer`}
                     onClick={() => handleContact(item.detail)}
@@ -265,7 +265,7 @@ export default function Resume({ darkMode, setDarkMode }: ResumeProps) {
         </div>
 
         {/* Right Column */}
-        <div className={`${darkMode ? 'bg-[#1a1919fa]' : ''} w-full md:w-2/3 p-8`}>
+        <div className={`${darkMode ? 'bg-[#1a1919fa]' : ''} w-full md:w-[100%] p-8`}>
           <section className="mb-8">
             <div className={`${darkMode ? 'bg-gray-800' : 'bg-[#f8f3f1]'} duration-500 px-4 py-2 mb-4`}>
               <h2 className={`${darkMode ? 'text-white' : 'text-gray-700'} duration-500 font-medium text-xl`}>PROFESSIONAL EXPERIENCE</h2>
